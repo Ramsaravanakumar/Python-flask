@@ -29,11 +29,33 @@ Here's the implementation of the emotion detection functionality:
 ```
 Python-flask/
 ├── README.md              # Project documentation
-├── emotion_detector.py    # Main emotion detection logic
-├── requirements.txt       # Project dependencies
-├── server.py             # Flask server implementation
+├── setup.py              # Package setup
+├── requirements.txt      # Project dependencies
+├── emotion_detector/     # Package directory
+│   ├── __init__.py      # Package initialization
+│   ├── emotion_detector.py  # Main emotion detection logic
+│   └── server.py        # Flask server implementation
 └── tests/               # Test directory
     └── test_emotion_detector.py  # Unit tests
+```
+
+## Package Installation
+
+The application can be installed as a Python package:
+
+1. Install in development mode:
+```bash
+pip install -e .
+```
+
+2. Or install as a package:
+```bash
+pip install .
+```
+
+3. Run the application using the installed package:
+```bash
+emotion-detector
 ```
 
 ## Emotion Detection Code
