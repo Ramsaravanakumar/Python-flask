@@ -86,6 +86,63 @@ The server will start on http://localhost:5000 by default.
 
 Detects emotions in the provided text.
 
+#### Request Body
+```json
+{
+    "text": "Your text here"
+}
+```
+
+#### Success Response (200)
+```json
+{
+    "code": 200,
+    "data": {
+        "emotion": "dominant_emotion",
+        "scores": {
+            "anger": 0.0,
+            "disgust": 0.0,
+            "fear": 0.0,
+            "joy": 0.0,
+            "sadness": 0.0
+        }
+    }
+}
+```
+
+#### Error Response (400)
+```json
+{
+    "code": 400,
+    "error": "No text was provided"
+}
+```
+
+#### Error Response (500)
+```json
+{
+    "code": 500,
+    "error": "Internal server error"
+}
+```
+
+### Output Format Validation
+
+The output format is strictly validated to ensure:
+1. Consistent response structure
+2. Proper error handling
+3. Accurate emotion scoring
+4. Correct dominant emotion identification
+
+The response will always contain:
+- A status code (200, 400, or 500)
+- Either error message or data object
+- When successful, includes:
+  - Dominant emotion
+  - Normalized scores for all emotions (0.0 to 1.0)
+
+Detects emotions in the provided text.
+
 Request Body:
 ```json
 {
