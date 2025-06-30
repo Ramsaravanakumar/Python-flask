@@ -1,6 +1,28 @@
 # Emotion Detection Application
 
-This application uses Watson NLP to detect emotions in text.
+This application uses IBM Watson NLP library to detect emotions in text. The application can identify five primary emotions:
+- Anger
+- Disgust
+- Fear
+- Joy
+- Sadness
+
+## Watson NLP Integration
+
+The application leverages Watson NLP's advanced natural language processing capabilities to analyze text and determine emotional content. The emotion detection is performed using a pre-trained model that can accurately classify text into different emotional categories.
+
+The implementation follows these key steps:
+1. Text input validation
+2. Emotion prediction using Watson NLP
+3. Score normalization
+4. Dominant emotion identification
+5. Response formatting
+
+## Emotion Detection Code
+
+Here's the implementation of the emotion detection functionality:
+
+![Emotion Detection Code](2a_emotion_detection.png)
 
 ## Project Structure
 
@@ -13,6 +35,12 @@ Python-flask/
 └── tests/               # Test directory
     └── test_emotion_detector.py  # Unit tests
 ```
+
+## Emotion Detection Code
+
+Here's the implementation of the emotion detection functionality:
+
+![Emotion Detection Code](2a_emotion_detection.png)
 
 ## Setup
 
