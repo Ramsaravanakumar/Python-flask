@@ -2,6 +2,18 @@
 
 This application uses Watson NLP to detect emotions in text.
 
+## Project Structure
+
+```
+Python-flask/
+├── README.md              # Project documentation
+├── emotion_detector.py    # Main emotion detection logic
+├── requirements.txt       # Project dependencies
+├── server.py             # Flask server implementation
+└── tests/               # Test directory
+    └── test_emotion_detector.py  # Unit tests
+```
+
 ## Setup
 
 1. Install dependencies:
