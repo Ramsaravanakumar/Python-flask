@@ -44,15 +44,41 @@ Here's the implementation of the emotion detection functionality:
 
 ## Setup
 
-1. Install dependencies:
+### Prerequisites
+
+Before using the application, ensure you have Python 3.8 or higher installed on your system.
+
+### Installation
+
+1. Install the required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Run the application:
+The application requires the following libraries:
+- Flask: For the web server
+- Watson NLP: For emotion detection
+- pytest: For running tests
+- flake8: For code analysis
+
+### Importing the Application
+
+The application can be imported in two ways:
+
+1. As a standalone module:
+```python
+from emotion_detector import emotion_predictor
+
+# Example usage
+result = emotion_predictor("I am feeling happy today")
+```
+
+2. Through the Flask server (recommended):
 ```bash
 python server.py
 ```
+
+The server will start on http://localhost:5000 by default.
 
 ## API Endpoints
 
