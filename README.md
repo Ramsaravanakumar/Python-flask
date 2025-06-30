@@ -156,12 +156,57 @@ The output format is strictly validated to ensure:
 3. Accurate emotion scoring
 4. Correct dominant emotion identification
 
-The response will always contain:
-- A status code (200, 400, or 500)
-- Either error message or data object
-- When successful, includes:
-  - Dominant emotion
-  - Normalized scores for all emotions (0.0 to 1.0)
+#### Validation Rules
+
+1. Success Response (200):
+   - Must contain `code` and `data` keys
+   - `code` must be 200
+   - `data` must contain:
+     - `emotion`: string value of dominant emotion
+     - `scores`: dictionary containing all 5 emotions with float values between 0.0 and 1.0
+
+2. Error Response (400):
+   - Must contain `code` and `error` keys
+   - `code` must be 400
+   - `error` must be a string describing the error
+
+3. Internal Error Response (500):
+   - Must contain `code` and `error` keys
+   - `code` must be 500
+   - `error` must be a string describing the internal error
+
+#### Example Validation Code
+```python
+import emotion_detector
+
+# Example text
+result = emotion_detector.emotion_predictor("I am feeling happy today")
+
+# Validate success response
+assert result["code"] == 200
+assert "data" in result
+assert "emotion" in result["data"]
+assert "scores" in result["data"]
+
+# Validate scores
+scores = result["data"]["scores"]
+for emotion in ["anger", "disgust", "fear", "joy", "sadness"]:
+    assert emotion in scores
+    assert 0.0 <= scores[emotion] <= 1.0
+
+# Validate error response
+result = emotion_detector.emotion_predictor("")
+assert result["code"] == 400
+assert "error" in result
+assert isinstance(result["error"], str)
+```
+
+#### Running Output Validation Tests
+
+You can run the output validation tests using:
+```bash
+python -m pytest tests/test_output_validation.py -v
+```
 
 Detects emotions in the provided text.
 
